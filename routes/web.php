@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ImovelController;
+use App\Http\Controllers\TestController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -11,6 +13,9 @@ Route::get('/', function () {
     ]);
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
+
+Route::resource('admin/imovel', ImovelController::class, ['names' => 'imovel']);
+Route::resource('admin/test', TestController::class, ['names' => 'test']);
