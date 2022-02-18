@@ -1,8 +1,8 @@
 /vendor/
+./_notes
 node_modules/
 npm-debug.log
 yarn-error.log
-/_notes
 
 # Laravel 4 specific
 bootstrap/compiled.php
