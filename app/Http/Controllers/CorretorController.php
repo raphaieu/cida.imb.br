@@ -82,7 +82,7 @@ class CorretorController extends Controller
             'corretor_creci' => ['required'],
             'corretor_contato' => ['required'],
             'corretor_bio' => ['nullable']
-        ])->validateWithBag('updateProfileExtraInformation');
+        ]);
 
         $message = 'Dados extra do perfil do Corretor Atualizado';
         $error = false;
