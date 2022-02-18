@@ -1,17 +1,16 @@
 <template>
     <Head title="Teste" />
     <div class="relative min-h-screen">
-        <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+        <div v-if="canLogin" class="fixed top-0 right-0 hidden px-6 py-4 sm:block">
             <Link v-if="$page.props.user" :href="route('dashboard')" class="text-sm text-gray-700 underline">
-                Dashboard
+                Painel de Controle
             </Link>
             <template v-else>
                 <Link :href="route('login')" class="text-sm text-gray-700 underline">
                     Log in
                 </Link>
-
                 <Link v-if="canRegister" :href="route('register')" class="ml-4 text-sm text-gray-700 underline">
-                    Register
+                    Cadastrar-se
                 </Link>
             </template>
         </div>
