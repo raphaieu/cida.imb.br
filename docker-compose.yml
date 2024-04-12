@@ -11,6 +11,8 @@ services:
       MYSQL_PASSWORD: Oops1759_
     ports:
       - "3306:3306"
+    networks:
+      - app-network
 
   back:
     build: ./back
@@ -18,11 +20,15 @@ services:
     volumes:
       - ./back:/var/www
     command: sh -c "php artisan serve --host=0.0.0.0 --port=8000"
+    environment:
+      HOST: 0.0.0.0
     ports:
       - "8000:8000"
       - "5173:5173"
     expose:
       - 8000
+    networks:
+      - app-network
     depends_on:
       - mysql
 
@@ -38,8 +44,12 @@ services:
       - "3000:3000"
     expose:
       - 3000
+    networks:
+      - app-network
     depends_on:
       - back
-
+networks:
+  app-network:
+    driver: bridge
 volumes:
   db_data:

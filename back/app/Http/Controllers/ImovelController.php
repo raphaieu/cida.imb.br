@@ -362,15 +362,22 @@ class ImovelController extends Controller
         $arquivos = $params->file('files');
 
         if ($id) {
-            // Se tiver um ID, é uma atualização
-            foreach ($arquivos as $file) {
-                $filename = $file->hashName();
-                $file->storeAs('public/images', $filename);
+            try {
+                // Se tiver um ID, é uma atualização
+                foreach ($arquivos as $file) {
+                    if ($file->isValid()) {
+                        $filename = $file->hashName();
+                        $file->storeAs('public/images', $filename);
 
-                $insert = "INSERT INTO imagem (img_imovel_id, img_nome) VALUES (?, ?)";
-                DB::insert($insert, [$id, $filename]);
+                        $insert = "INSERT INTO imagem (img_imovel_id, img_nome) VALUES (?, ?)";
+                        DB::insert($insert, [$id, $filename]);
+                    }
+                }
+                DB::update("UPDATE imovel SET imovel_titulo = ?, imovel_descricao = ? WHERE imovel_id = ?", [$titulo, $descricao, $id]);
+            } catch (\Exception $e) {
+                Log::error($e->getMessage());
+                return back()->withErrors('An error occurred while uploading the file.');
             }
-            DB::update("UPDATE imovel SET imovel_titulo = ?, imovel_descricao = ? WHERE imovel_id = ?", [$titulo, $descricao, $id]);
         } else {
             // Se não tiver ID, é uma inserção
             $id = DB::table('imovel')->insertGetId([

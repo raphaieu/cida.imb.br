@@ -1,4 +1,3 @@
-/_notes/
 /back/node_modules
 /back/public/build
 /back/public/hot
@@ -29,5 +28,6 @@
 /back/*.beforefix
 
 /front/node_modules
-/front/_nuxt
+/front/._nuxt/
 /front/.idea/
+/_notes/
