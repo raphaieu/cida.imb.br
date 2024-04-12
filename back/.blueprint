@@ -1,0 +1,11 @@
+models:
+    Caracteristica: { c_id: 'integer autoincrement', c_nome: string, c_icone: 'string:45 nullable', c_tipo: 'enum:IMOVEL,CONDOMINIO,EDF,TERRENO nullable' }
+    Corretor: { corretor_id: 'integer autoincrement', corretor_creci: 'string:15 nullable', corretor_bio: 'string nullable', corretor_contato: 'string nullable', users_id: 'biginteger unsigned nullable' }
+    Endereco: { endereco_id: 'integer autoincrement', endereco_imovel_id: 'integer nullable', endereco_logradouro: 'string nullable', endereco_bairro: 'string:150 nullable', endereco_municipio: 'string:150', endereco_uf: 'string:5', endereco_cep: 'string:10 nullable', endereco_zona: 'string:125', endereco_regiao: 'string:125', endereco_maps: 'longtext nullable' }
+    Imagem: { img_id: 'integer autoincrement', img_imovel_id: integer, img_nome: string, img_titulo: 'string:100 nullable', img_ordem: 'string:2 nullable', img_destaque: 'string:1 default:0' }
+    Imovel: { imovel_id: 'integer autoincrement', corretor_id: 'integer nullable', tipo_imovel_id: 'integer nullable', tipo_negocio_id: 'integer nullable', imovel_titulo: 'string nullable', imovel_descricao: 'longtext nullable', imovel_area: 'string:20 nullable', imovel_quarto: 'string:20 nullable', imovel_banheiro: 'string:20 nullable', imovel_suite: 'string:20 nullable', imovel_vagas: 'string:20 nullable', imovel_preco: 'float:10 nullable', imovel_valor_cond: 'float:10 nullable', imovel_valor_iptu: 'float:10 nullable', imovel_visualizacao: 'integer nullable default:0', imovel_destaque: 'string:1 default:0', imovel_slug: 'string default:-', imovel_data_cadastro: 'datetime nullable default:CURRENT_TIMESTAMP' }
+    ImovelCaracteristica: { imovel_id: integer, c_id: integer, valor: 'string nullable' }
+    ImovelEdfCaracteristica: { imovel_id: integer, edf_c_id: integer, valor: 'string nullable' }
+    TipoImovel: { tipo_id: 'integer autoincrement', tipo_res_com: 'enum:RESIDENCIAL,COMERCIAL nullable', tipo_descricao: string }
+    TipoNegocio: { negocio_id: 'integer autoincrement', negocio_tipo: 'string:150' }
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, two_factor_secret: 'text nullable', two_factor_recovery_codes: 'text nullable', remember_token: 'string:100 nullable', current_team_id: 'biginteger unsigned nullable', profile_photo_path: 'string:2048 nullable' }

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "contato",
+    "path": "/contato",
+    "component": "/app/pages/contato.vue",
+    "chunkName": "pages/contato",
+    "_name": "_acc937a0"
+  },
+  {
+    "name": "sobre",
+    "path": "/sobre",
+    "component": "/app/pages/sobre.vue",
+    "chunkName": "pages/sobre",
+    "_name": "_0bdf643f"
+  },
+  {
+    "name": "todos-imoveis",
+    "path": "/todos-imoveis",
+    "component": "/app/pages/todos-imoveis.vue",
+    "chunkName": "pages/todos-imoveis",
+    "_name": "_6a4ea40a"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/app/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_2dfb1658"
+  },
+  {
+    "name": "busca-search",
+    "path": "/busca/:search?",
+    "component": "/app/pages/busca/_search.vue",
+    "chunkName": "pages/busca/_search",
+    "_name": "_3ce86a1c"
+  },
+  {
+    "name": "imovel-slug",
+    "path": "/imovel/:slug?",
+    "component": "/app/pages/imovel/_slug.vue",
+    "chunkName": "pages/imovel/_slug",
+    "_name": "_3e15fb97"
+  }
+]

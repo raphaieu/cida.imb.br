@@ -1,0 +1,45 @@
+version: '3.4'
+services:
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: imoveis
+      MYSQL_USER: raphael
+      MYSQL_PASSWORD: Oops1759_
+    ports:
+      - "3306:3306"
+
+  back:
+    build: ./back
+    image: cida_back
+    volumes:
+      - ./back:/var/www
+    command: sh -c "php artisan serve --host=0.0.0.0 --port=8000"
+    ports:
+      - "8000:8000"
+      - "5173:5173"
+    expose:
+      - 8000
+    depends_on:
+      - mysql
+
+  front:
+    build: ./front
+    image: cida_front
+    volumes:
+      - ./front:/app
+    command: sh -c "npm install && npm run dev"
+    environment:
+      HOST: 0.0.0.0
+    ports:
+      - "3000:3000"
+    expose:
+      - 3000
+    depends_on:
+      - back
+
+volumes:
+  db_data:

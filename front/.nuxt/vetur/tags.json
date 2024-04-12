@@ -1,0 +1,11 @@
+{
+  "ImovelCard": {
+    "description": "Auto imported from components/ImovelCard.vue"
+  },
+  "ImovelCarousel": {
+    "description": "Auto imported from components/ImovelCarousel.vue"
+  },
+  "ImovelCarouselDestaque": {
+    "description": "Auto imported from components/ImovelCarouselDestaque.vue"
+  }
+}

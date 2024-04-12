@@ -1,23 +1,33 @@
-/vendor/
-./_notes
-node_modules/
-npm-debug.log
-yarn-error.log
+/_notes/
+/back/node_modules
+/back/public/build
+/back/public/hot
+/back/public/storage
+/back/storage/*.key
+/back/vendor
+/back/.env
+/back/.env.backup
+/back/.env.production
+/back/.phpunit.result.cache
+/back/Homestead.json
+/back/Homestead.yaml
+/back/auth.json
+/back/npm-debug.log
+/back/yarn-error.log
+/back/.fleet
+/back/.idea
+/back/.vscode
 
 # Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
+/back/bootstrap/compiled.php
+/back/app/storage/
 
 # Laravel 5 & Lumen specific
-public/storage
-public/hot
-storage/*.key
-.env
-.env.example
-Homestead.yaml
-Homestead.json
-/.vagrant
-/.idea
-*.mwb
-*.bak
-*.beforefix
+/back/.vagrant
+/back/*.mwb
+/back/*.bak
+/back/*.beforefix
+
+/front/node_modules
+/front/_nuxt
+/front/.idea/
