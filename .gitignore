@@ -28,7 +28,7 @@
 /back/*.beforefix
 
 /front/node_modules
-/front/._nuxt/
+/front/.nuxt/
 /front/.idea/
 /_notes/
 /.idea/
